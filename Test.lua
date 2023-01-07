@@ -33,5 +33,42 @@ People:Each(function(key, value)
     );
 end);
 
+-- Get the keys of the dictionary
+local Keys = People:Keys();
+print("[Keys function] People keys: " .. HttpService:JSONEncode(Keys));
+
+-- Get a random key from the dictionary
+local RandomKey, RandomValue = People:Random();
+print(
+    "[Random function] Random key: " .. RandomKey .. " Random value: " .. HttpService:JSONEncode(RandomValue)
+);
+
+-- Encode the dictionary to JSON
+local JSON = People:Encode();
+print(
+    "[Encode function] JSON: " .. JSON
+);
+
+-- Decode the dictionary from JSON
+local Decoded = People:Decode(JSON);
+print(
+    "[Decode function] Decoded: " .. HttpService:JSONEncode(Decoded)
+);
+
+-- Map the dictionary
+local Mapped = NewTable:Map(function(index, value)
+	return (index .. " cool");
+end)
+print(Mapped.join("-"));
+
+-- Filter the dictionary
+local Filtered = NewTable:Filter(function(index, value)
+    return (index == "Person1");
+end)
+
+-- Slice the dictionary
+local Sliced = NewTable:Slice(0, 2);
+print(Sliced);
+
 -- Clear the dictionary
 People:Clear();
