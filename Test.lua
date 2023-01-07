@@ -8,7 +8,7 @@ local People = Dictionary.new();
 People:Watch():Connect(function(key, value)
     -- Print the key and value of the dictionary when it changes
     print(
-        "Dictionary changed: " .. key .. " = " .. HttpService:JSONEncode(value)
+        "[Watch function] Dictionary changed: " .. key .. " = " .. HttpService:JSONEncode(value)
     );
 end);
 
@@ -22,6 +22,16 @@ print("People: " .. HttpService:JSONEncode(People));
 -- Remove a value from the dictionary
 People.Person2 = nil;
 print("People: " .. HttpService:JSONEncode(People));
+
+-- Get the size of the dictionary
+print("People size: " .. People:GetSize());
+
+-- Iterate over the dictionary
+People:Each(function(key, value)
+    print(
+        "[Each function]: Key: " .. key .. " Value: " .. HttpService:JSONEncode(value)
+    );
+end);
 
 -- Clear the dictionary
 People:Clear();
