@@ -171,6 +171,23 @@ function DictionaryHelper:Slice(Offset, Length, Key, Symbol)
 	return convertedDictionary;
 end
 
+function DictionaryPlus.Filter(Callback)
+	--// Filters the self dictionary with the given callback
+	local filtered = { };
+
+	for index, value in pairs(self) do 
+		local res = Callback(index, value);
+
+		if (not res) then 
+			continue;
+		end;
+
+		filtered[Index] = Value;
+	end;
+
+	return filtered;
+end
+
 function DictionaryHelper:Clear()
 	for key, value in pairs(self) do
 		self[key] = nil;
