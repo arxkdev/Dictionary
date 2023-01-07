@@ -171,6 +171,10 @@ function DictionaryHelper:Slice(Offset, Length, Key, Symbol)
 	return convertedDictionary;
 end
 
+function DictionaryHelper:Clear()
+	self = { };
+end
+
 function DictionaryHelper:Decode(encodedString)
 	--// This takes the string they sent in and returns a table
 	return HttpService:JSONDecode(encodedString);
