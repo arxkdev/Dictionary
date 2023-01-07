@@ -145,4 +145,40 @@ function DictionaryHelper:Map(modifier)
 	return map;
 end
 
+function DictionaryHelper:Slice(Offset, Length, Key, Symbol)
+	--// Gets a range from A to B of indexs
+	--// Converts the dictionary into a sorted dictionary with the given key and then slices it
+	local tab = {};
+	for i, v in pairs(self) do
+		table.insert(tab, {
+			i,
+			v
+		});
+	end;
+	local newTab = {};
+
+	for index = Offset or 1, Length or #tab do
+		table.insert(newTab, tab[index]);
+	end;
+
+	local convertedDictionary = {};
+
+	for i, v in pairs(newTab) do
+		convertedDictionary[i] = tab[i];
+	end;
+
+	--// TODO convert back to a dictionary
+	return convertedDictionary;
+end
+
+function DictionaryHelper:Decode(encodedString)
+	--// This takes the string they sent in and returns a table
+	return HttpService:JSONDecode(encodedString);
+end
+
+function DictionaryHelper:Encode()
+	--// This takes in the dictionary and sends them back an encoded string
+	return HttpService:JSONEncode(self);
+end
+
 return DictionaryHelper;
