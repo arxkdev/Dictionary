@@ -12,6 +12,9 @@ People:Watch():Connect(function(key, value)
     );
 end);
 
+-- Get the size of the dictionary
+print("People size before removing: " .. People:GetSize());
+
 -- Add some values to the dictionary
 People.Person1 = {Name = "Bob"; Age = 20};
 People.Person2 = {Name = "Alice"; Age = 21};
@@ -21,7 +24,7 @@ print("People: " .. HttpService:JSONEncode(People));
 
 -- Remove a value from the dictionary
 People.Person2 = nil;
-print("People: " .. HttpService:JSONEncode(People));
+print("People size after removing: " .. HttpService:JSONEncode(People));
 
 -- Get the size of the dictionary
 print("People size: " .. People:GetSize());
