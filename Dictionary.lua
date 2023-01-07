@@ -172,7 +172,9 @@ function DictionaryHelper:Slice(Offset, Length, Key, Symbol)
 end
 
 function DictionaryHelper:Clear()
-	self = { };
+	for key, value in pairs(self) do
+		self[key] = nil;
+	end;
 end
 
 function DictionaryHelper:Decode(encodedString)
