@@ -8,14 +8,14 @@ local Changed = Instance.new("BindableEvent");
 function DictionaryHelper.new()
 	local t = {};
 	setmetatable(t, DictionaryHelper);
-	
+
 	local mt = getmetatable(t);
-	
+
 	mt.__newindex = function(self, key, value)
 		rawset(self, key, value);
 		Changed:Fire(key, value);
 	end;
-	
+
 	mt.__index = function(self, key)		
 		-- impossible to detect changes on already made variables unfortunately
 		-- for table helper functions
@@ -27,7 +27,7 @@ function DictionaryHelper.new()
 		Changed:Fire(key, value);
 		return value;
 	end;
-	
+
 	return t;
 end
 
@@ -42,11 +42,11 @@ end
 
 function DictionaryHelper:GetSize()
 	local size = 0;
-	
+
 	for _ in pairs(self) do
 		size += 1;
 	end;
-	
+
 	return size;
 end
 
@@ -99,13 +99,13 @@ function DictionaryHelper:Random()
 	for _ in pairs(self) do
 		size += 1;
 	end;
-	
+
 	local keys = { };
 
 	for index, _ in pairs(self) do 
 		table.insert(keys, index);
 	end;
-	
+
 	local RandomIndex = math.random(1, size);
 	local PickedValue = keys[RandomIndex];
 	return RandomIndex, PickedValue;
@@ -125,7 +125,7 @@ function DictionaryHelper:FindValue(index)
 			end;
 		end;
 	end;
-	
+
 	return deepSearch();
 end
 
@@ -140,7 +140,7 @@ function DictionaryHelper:Map(modifier)
 	function map.join(separator)
 		return table.concat(map.content, separator);
 	end;
-	
+
 	-- make more map functions later..?
 	return map;
 end

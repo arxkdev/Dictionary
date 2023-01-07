@@ -7,7 +7,7 @@ local People = Dictionary.new();
 -- Watch the dictionary for changes
 People:Watch():Connect(function(key, value)
     -- Print the key and value of the dictionary when it changes
-	print(
+    print(
         "Dictionary changed: " .. key .. " = " .. HttpService:JSONEncode(value)
     );
 end);
