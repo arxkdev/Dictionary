@@ -171,7 +171,7 @@ function DictionaryHelper:Slice(Offset, Length, Key, Symbol)
 	return convertedDictionary;
 end
 
-function DictionaryPlus.Filter(Callback)
+function DictionaryHelper:Filter(Callback)
 	--// Filters the self dictionary with the given callback
 	local filtered = { };
 
