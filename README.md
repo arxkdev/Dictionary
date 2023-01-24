@@ -1,5 +1,5 @@
 # Dictionary
-Similar to Dictionary [https://github.com/Kumarion/Array]
+Similar to Array [https://github.com/Kumarion/Array]
 Only difference is its only for dictionaries.
 
 Based off the array prototype in JavaScript. (Will see similar methods)
